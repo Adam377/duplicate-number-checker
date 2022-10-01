@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import Numbers from './components/Numbers/Numbers';
+import NumberForm from './components/NewNumber/NumberForm';
+
 import './App.css';
 
 function App() {
+  const numbers = [
+    {
+      number: 143603,
+    },
+    {
+      number: 43141,
+    },
+    {
+      number: 43155,
+    },
+    {
+      number: 153305,
+    },
+    {
+      number: 143611,
+    },
+    {
+      number: 150131,
+    },
+    {
+      number: 153333,
+    },
+  ];
+
+  const addNumberHandler = (number) => {
+    console.log(number);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Duplicate Number Checker!</h1>
+      <NumberForm onAddNumber={addNumberHandler}/>
+      <Numbers allNumbers={numbers} />
     </div>
   );
 }
