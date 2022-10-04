@@ -1,18 +1,20 @@
 import NumberForm from "./NumberForm";
 
+import './NewNumber.css';
+
 const NewNumber = (props) => {
     const saveNumberDataHandler = (enteredNumberData) => {
-        const numberData = {
+        const NumberData = {
             ...enteredNumberData,
             id: Math.random().toString()
-        }
-
-        props.onAddNumber(numberData);
+        };
+        
+        props.onAddNumber(NumberData);
     };
 
     return (
         <div className="new-number">
-            <NumberForm onSaveNumberData={saveNumberDataHandler} />
+            <NumberForm onSaveNumberData={saveNumberDataHandler}/>
         </div>
     );
 }

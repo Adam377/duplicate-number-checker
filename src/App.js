@@ -1,41 +1,61 @@
+import React, {useState} from 'react';
+
 import Numbers from './components/Numbers/Numbers';
-import NumberForm from './components/NewNumber/NumberForm';
+import NewNumber from './components/NewNumber/NewNumber';
 
 import './App.css';
 
-function App() {
-  const numbers = [
-    {
-      number: 143603,
-    },
-    {
-      number: 43141,
-    },
-    {
-      number: 43155,
-    },
-    {
-      number: 153305,
-    },
-    {
-      number: 143611,
-    },
-    {
-      number: 150131,
-    },
-    {
-      number: 153333,
-    },
-  ];
+const DUMMY_NUMBERS = [
+  {
+    id: 0,
+    number: '43141',
+    headcode: '1A86',
+  },
+  {
+    id: 1,
+    number: '43155',
+    headcode: '1A86',
+  },
+  {
+    id: 2,
+    number: '150123',
+    headcode: '2T12',
+  },
+  {
+    id: 3,
+    number: '158954',
+    headcode: '2C67',
+  },
+  {
+    id: 4,
+    number: '142009',
+    headcode: '2T14',
+  },
+  {
+    id: 5,
+    number: '150128',
+    headcode: '2T14',
+  },
+  {
+    id: 6,
+    number: '153305',
+    headcode: 'Static at Exeter TMD',
+  },
+];
+
+const App = () => {
+  const [numbers, setNumbers] = useState(DUMMY_NUMBERS);
 
   const addNumberHandler = (number) => {
-    console.log(number);
+    setNumbers((prevNumbers) => {
+      return [number, ...prevNumbers];
+    });
   };
 
   return (
     <div>
       <h1>Duplicate Number Checker!</h1>
-      <NumberForm onAddNumber={addNumberHandler}/>
+      <NewNumber onAddNumber={addNumberHandler}/>
       <Numbers allNumbers={numbers} />
     </div>
   );

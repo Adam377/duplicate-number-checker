@@ -1,29 +1,45 @@
 import React, {useState} from 'react';
 
+import './NumberForm.css';
+
 const NumberForm = (props) => {
     const [enteredNumber, setEnteredNumber] = useState('');
+    const [enteredHeadcode, setEnteredHeadcode] = useState('');
 
     const numberChangeHandler = (event) => {
         setEnteredNumber(event.target.value);
     };
 
+    const headcodeChangeHandler = (event) => {
+        setEnteredHeadcode(event.target.value);
+    }
+
     const submitHandler = (event) => {
         event.preventDefault();
 
-        const NumberData = {
+        const numberData = {
             number: enteredNumber,
+            headcode: enteredHeadcode,
         };
 
-        // clear input field after number has been submitted
+        props.onSaveNumberData(numberData);
+
+        // clear input fields after number has been submitted
         setEnteredNumber('');
+        setEnteredHeadcode('');
     };
 
     return (
         <form onSubmit={submitHandler}>
-            <div className="new-number__inputs">
-                <div className="new-number__input">
+            <div className="new-number__controls">
+                <div className="new-number__control">
                     <label>Number</label>
                     <input type="text" value={enteredNumber} onChange={numberChangeHandler} />
+                </div>
+
+                <div className="new-number__control">
+                    <label>Headcode</label>
+                    <input type="text" value={enteredHeadcode} onChange={headcodeChangeHandler} />
                 </div>
             </div>
 
