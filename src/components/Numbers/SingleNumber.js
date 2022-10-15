@@ -1,13 +1,13 @@
 import Card from "../UI/Card";
 
+import './SingleNumber.css';
+
 const SingleNumber = (props) => {
     return (
         <li>
             <Card className="single-number">
-                <div className="single-number-display">
-                    <h3>{props.number}</h3>
-                    <h3>{props.headcode}</h3>
-                </div>
+                <h3>{props.number}</h3>
+                <h3>{props.headcode}</h3>
             </Card>
         </li>
     );

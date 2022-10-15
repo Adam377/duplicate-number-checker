@@ -1,0 +1,9 @@
+.numbers-list {
+    list-style: none;
+    padding: 0;
+}
+
+.numbers-list__fallback {
+    color: white;
+    text-align: center;
+}
