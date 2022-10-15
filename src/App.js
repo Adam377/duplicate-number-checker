@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 import Numbers from './components/Numbers/Numbers';
 import NewNumber from './components/NewNumber/NewNumber';
+import NumberCheck from './components/NumberCheck/NumberCheck';
 
 import './App.css';
 
@@ -56,6 +57,7 @@ const App = () => {
     <div>
       <h1>Duplicate Number Checker!</h1>
       <NewNumber onAddNumber={addNumberHandler}/>
+      <NumberCheck />
       <Numbers allNumbers={numbers} />
     </div>
   );

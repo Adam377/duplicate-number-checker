@@ -6,7 +6,7 @@
     text-align: left;
 }
 
-.new-expense__control input {
+.new-number__control input {
     font: inherit;
     padding: 0.5rem;
     border-radius: 6px;
