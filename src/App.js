@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Duplicate Number Checker!</h1>
+      <h1 className="app-header">Duplicate Number Checker!</h1>
       <NewNumber onAddNumber={addNumberHandler}/>
       <NumberCheck />
       <Numbers allNumbers={numbers} />

@@ -17,16 +17,30 @@ const NumberForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        const numberData = {
-            number: enteredNumber,
-            headcode: enteredHeadcode,
-        };
+        if(!hasValidInput(enteredNumber, enteredHeadcode)){
+            window.alert("Please fill in all fields.");
+        }
+        else{
+            const numberData = {
+                number: enteredNumber,
+                headcode: enteredHeadcode,
+            };
 
-        props.onSaveNumberData(numberData);
+            props.onSaveNumberData(numberData);
 
-        // clear input fields after number has been submitted
-        setEnteredNumber('');
-        setEnteredHeadcode('');
+            // clear input fields after number has been submitted
+            setEnteredNumber('');
+            setEnteredHeadcode('');
+        }
+    };
+
+    const hasValidInput = (number, headcode) => {
+        if(number=="" || number==" " || headcode=="" || headcode==" "){
+            return false;
+        }
+        else {
+            return true;
+        }
     };
 
     return (
